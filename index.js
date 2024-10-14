@@ -1,7 +1,3 @@
-// 1. create a 2d space
-// 2. be able to draw stuff in the 2d space 
-// 2. be able to move in the 2d space
-
 // Represents a place in the grid
 class Vector2D {
     constructor(x, y) {
