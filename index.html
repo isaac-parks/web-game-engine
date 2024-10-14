@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    html {
+        background-color: black
+    }
+</style>
+<body>
+    <div id="game"></div>
+</body>
+    <script src="index.js"></script>
+    <script>
+        let map = new GameMap();
+        map.createGrid(30, 30)
+        let road = new Vector2D(3, 18)
+        let roadLocation = new Vector2D(4, 3);
+        let player = new Vector2D();
+        let playerLocation = new Vector2D(3, 3);
+        map.drawSquare(road, roadLocation);
+        map.drawSquare(player, playerLocation);
+        map.logGrid();
+    </script>
+</html>
