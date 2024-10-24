@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<style>
+  </head>
+  <style>
     html {
-        background-color: black
+      background-color: black;
     }
-</style>
-<body>
+  </style>
+  <body>
     <div id="game"></div>
-</body>
-    <script src="index.js"></script>
-    <script>
-        let map = new GameMap();
-        map.createGrid(30, 30)
-        let road = new Vector2D(3, 18)
-        let roadLocation = new Vector2D(4, 3);
-        let player = new Vector2D();
-        let playerLocation = new Vector2D(3, 3);
-        map.drawSquare(road, roadLocation);
-        map.drawSquare(player, playerLocation);
-        map.logGrid();
-    </script>
+  </body>
+  <script src="index.js"></script>
+  <script>
+    let map = createGameMap();
+    map.setBounds(30, 30);
+    let playerSize = createVec2D(2, 2);
+    let playerLocation = createVec2D(10, 10);
+    let player = createActor(playerSize);
+
+    map.placeActor(player, playerLocation);
+
+    map.update();
+    map.log();
+
+    document.addEventListener("keypress", (e) => {
+      if (e.key === "d") {
+        console.log("press detect");
+        let m = createVec2D(1, 0);
+        player.move(m);
+        map.update();
+        map.log();
+      }
+    });
+  </script>
 </html>
